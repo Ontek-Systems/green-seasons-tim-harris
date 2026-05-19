@@ -157,6 +157,9 @@ async function loadComponents() {
                 if (footerStart !== -1) html = html.slice(footerStart);
             }
             footerPlaceholder.outerHTML = html;
+            const ctaTagline = document.getElementById('footer-cta-tagline');
+            const override = document.body.getAttribute('data-cta-tagline');
+            if (ctaTagline && override) ctaTagline.textContent = override;
         } catch (e) {
             console.error('Error loading footer:', e);
         }
