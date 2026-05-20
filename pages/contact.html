@@ -20,17 +20,13 @@
     <meta name="twitter:description" content="Get in touch with Green Seasons for a free, no-obligation quote. Call Tim Harris on 07545 285408 or send a message. Serving Oxfordshire." />
     <meta name="twitter:image" content="https://www.green-seasons.co.uk/assets/imgs/og-image.jpg" />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-    <link rel="manifest" href="../site.webmanifest">
-    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" href="../assets/imgs/main_favicon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4.3.0/dist/index.global.js" integrity="sha384-nWTzRTCY/9V4Bo352ehygr1c4cnst4XN6lMR3fipakEQrhVpc0hEM5Dii3Amz0sT" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="../style.css">
     <style type="text/tailwindcss">
@@ -131,15 +127,14 @@
 
                     <!-- LEFT: Form -->
                     <div class="lg:w-3/5 p-8 md:p-12 lg:p-16">
-                        <h2 class="group font-heading font-black mb-[22px] flex flex-col items-start cursor-default style= color:#1a3528; text-4xl text-5xl leading-[1.15] hover:text-[#db9f1b] transition-colors duration-500">
+                        <h2 class="group font-heading font-black mb-[22px] flex flex-col items-start cursor-default text-4xl sm:text-5xl leading-[1.15] hover:text-[#db9f1b] transition-colors duration-500" style="color:#1a3528;">
                             How Can We Help?</h2>
-                        <p class="font-body text-xl mb-12" style="color:rgba(26,53,40,0.80);">Fill in the form below and Tim will be in touch promptly with a free, no-obligation quote tailored to your outdoor space. Whether it's routine maintenance or a full garden transformation, we'd love to help.</p>
+                        <p class="font-body text-base sm:text-lg md:text-xl mb-12" style="color:rgba(26,53,40,0.80);">Fill in the form below and Tim will be in touch promptly with a free, no-obligation quote tailored to your outdoor space. Whether it's routine maintenance or a full garden transformation, we'd love to help.</p>
 
-                        <form id="contact-form" class="space-y-8 font-body">
+                        <form id="contact-form" data-form-type="residential" class="space-y-8 font-body" novalidate>
                             <!-- Honeypot -->
-                            <div style="display:none;">
-                                <label for="botcheck">Leave this field empty</label>
-                                <input type="text" name="botcheck" id="botcheck" tabindex="-1" autocomplete="off">
+                            <div style="position:absolute;left:-9999px;top:-9999px;height:0;overflow:hidden;" aria-hidden="true">
+                                <label for="botcheck">Website <input type="text" name="website" id="botcheck" tabindex="-1" autocomplete="off"></label>
                             </div>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -188,16 +183,20 @@
                                 </label>
                             </div>
 
-                            <button id="submit-btn" type="submit"
-                                 
-                                 class="btn-primary">Send My Enquiry</button>
+                            <button id="submit-btn" type="submit" class="btn-primary relative">
+                                <span id="submit-text">Send My Enquiry</span>
+                                <svg id="submit-spinner" class="hidden animate-spin h-5 w-5 absolute right-5 top-1/2 -translate-y-1/2" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" opacity="0.25"></circle>
+                                    <path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+                                </svg>
+                            </button>
 
                             <p id="form-error" class="hidden font-bold mt-4" style="color:#DC2626;"></p>
                         </form>
 
                         <script>
                             document.addEventListener('DOMContentLoaded', () => {
-                                const form      = document.getElementById('contact-form');
+                                const form      = document.querySelector('form#contact-form');
                                 const submitBtn = document.getElementById('submit-btn');
                                 const submitText = document.getElementById('submit-text');
                                 const formError = document.getElementById('form-error');
@@ -213,25 +212,29 @@
                                         }
 
                                         submitBtn.disabled = true;
-                                        submitText.innerHTML = 'Sending...';
+                                        if (submitText) submitText.textContent = 'Sending...';
+                                        const spinner = document.getElementById('submit-spinner');
+                                        if (spinner) spinner.classList.remove('hidden');
                                         submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
                                         formError.classList.add('hidden');
 
-                                        const formData = new FormData(form);
-                                        const webhookUrl = '[YOUR_WEBHOOK_URL_HERE]';
+                                        const fd = new FormData(form);
+                                        const payload = { form_type: 'residential' };
+                                        fd.forEach((v, k) => { payload[k] = v; });
+                                        const webhookUrl = 'https://script.google.com/macros/s/AKfycbw85XGkQWEq1sDXshyLNVL6_fcTRVzAAheeAElv4DSeE68ahRDs7RKNAWCHsq1PLOrP/exec';
 
                                         fetch(webhookUrl, {
                                             method: 'POST',
-                                            body: formData,
-                                            mode: 'no-cors'
+                                            headers: { 'Content-Type': 'text/plain' },
+                                            body: JSON.stringify(payload),
+                                            mode: 'no-cors',
+                                            redirect: 'follow'
                                         })
-                                        .then(() => {
-                                            window.location.href = 'thank-you.html';
-                                        })
+                                        .then(() => { window.location.href = 'thank-you.html'; })
                                         .catch((error) => {
                                             console.error('Submission Error:', error);
                                             submitBtn.disabled = false;
-                                            submitText.innerHTML = 'Error. Try Again.';
+                                            if (submitText) submitText.textContent = 'Error. Try Again.';
                                             submitBtn.classList.remove('opacity-80', 'cursor-not-allowed');
                                             formError.textContent = 'Something went wrong. Please call Tim directly on 07545 285408.';
                                             formError.classList.remove('hidden');
@@ -247,12 +250,12 @@
                         style="background:#668e78;">
 
                         <div class="relative z-10">
-                            <h3 class="font-heading font-semibold text-3xl mb-10" style="color:#ffffff;">Contact Details</h3>
+                            <h3 class="font-heading font-semibold text-3xl mb-10 text-center sm:text-left" style="color:#ffffff;">Contact Details</h3>
 
                             <div class="space-y-8 font-body">
 
                                 <!-- Phone -->
-                                <div class="flex items-start gap-4 group">
+                                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 text-center sm:text-left group">
                                     <div class="w-12 h-12 rounded-none flex items-center justify-center shrink-0 border border-white/10 transition-all duration-300 group-hover:scale-110"
                                         style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.10);"
                                         onmouseenter="this.style.background='#db9f1b';this.style.borderColor='#db9f1b';"
@@ -273,7 +276,7 @@
                                 </div>
 
                                 <!-- Email -->
-                                <div class="flex items-start gap-4 group">
+                                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 text-center sm:text-left group">
                                     <div class="w-12 h-12 rounded-none flex items-center justify-center shrink-0 border border-white/10 transition-all duration-300 group-hover:scale-110"
                                         style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.10);"
                                         onmouseenter="this.style.background='#db9f1b';this.style.borderColor='#db9f1b';"
@@ -294,7 +297,7 @@
                                 </div>
 
                                 <!-- Hours -->
-                                <div class="flex items-start gap-4 group">
+                                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 text-center sm:text-left group">
                                     <div class="w-12 h-12 rounded-none flex items-center justify-center shrink-0 border border-white/10 transition-all duration-300 group-hover:scale-110"
                                         style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.10);"
                                         onmouseenter="this.style.background='#db9f1b';this.style.borderColor='#db9f1b';"
@@ -312,7 +315,7 @@
                                 </div>
 
                                 <!-- Location -->
-                                <div class="flex items-start gap-4 group">
+                                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 text-center sm:text-left group">
                                     <div class="w-12 h-12 rounded-none flex items-center justify-center shrink-0 border border-white/10 transition-all duration-300 group-hover:scale-110"
                                         style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.10);"
                                         onmouseenter="this.style.background='#db9f1b';this.style.borderColor='#db9f1b';"
@@ -330,7 +333,7 @@
                                 </div>
 
                                 <!-- Facebook -->
-                                <div class="flex items-start gap-4 group">
+                                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 text-center sm:text-left group">
                                     <div class="w-12 h-12 rounded-none flex items-center justify-center shrink-0 border border-white/10 transition-all duration-300 group-hover:scale-110"
                                         style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.10);"
                                         onmouseenter="this.style.background='#db9f1b';this.style.borderColor='#db9f1b';"
@@ -351,7 +354,7 @@
                                 </div>
 
                                 <!-- WhatsApp -->
-                                <div class="flex items-start gap-4 group">
+                                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 text-center sm:text-left group">
                                     <div class="w-12 h-12 rounded-none flex items-center justify-center shrink-0 border border-white/10 transition-all duration-300 group-hover:scale-110"
                                         style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.10);"
                                         onmouseenter="this.style.background='#db9f1b';this.style.borderColor='#db9f1b';"
@@ -397,7 +400,7 @@
                     <span class="word-mask-inner inline-block font-body font-extrabold text-xl tracking-widest uppercase mb-8 cursor-default text-[#1a3528] hover:text-[#db9f1b] transition-colors duration-300" style="transition-delay: 50ms;">
                             <span class="border-b-[1.5px] border-current pb-0.5">02</span>
                         </span>
-                    <h2 class="group font-heading font-black text-[4rem] text-[#1a3528] leading-[1.15] flex flex-col items-center cursor-default w-full text-4xl text-5xl mb-[22px] hover:text-[#db9f1b] transition-colors duration-500">
+                    <h2 class="group font-heading font-black text-4xl sm:text-5xl text-[#1a3528] leading-[1.15] flex flex-col items-center cursor-default w-full mb-[22px] hover:text-[#db9f1b] transition-colors duration-500">
                         We Come to You Across Oxfordshire</h2>
                     <p class="font-body text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mt-5" style="color:rgba(26,53,40,0.60);">
                         We regularly serve Oxford, Abingdon, Didcot, Wantage, Witney and the surrounding villages. Not sure if we cover your area? Just give us a call and we'll let you know.

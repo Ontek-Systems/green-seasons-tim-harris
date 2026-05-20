@@ -1,8 +1,7 @@
 User-agent: *
 Allow: /
 
-# Prevent search engines from indexing the thank you page
 Disallow: /pages/thank-you.html
+Disallow: /pages/process_form.html
 
-# Sitemap reference (assuming it will be hosted on the root domain)
-Sitemap: https://www.jboutdoorservices.co.uk/sitemap.xml
+Sitemap: https://www.green-seasons.co.uk/sitemap.xml

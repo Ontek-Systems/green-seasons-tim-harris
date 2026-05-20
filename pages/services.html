@@ -14,16 +14,12 @@
     <meta name="twitter:title" content="Our Services | Green Seasons" />
     <meta name="twitter:description" content="Explore our full range of professional garden and grounds maintenance services across Oxfordshire." />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-    <link rel="manifest" href="../site.webmanifest">
-    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" href="../assets/imgs/main_favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4.3.0/dist/index.global.js" integrity="sha384-nWTzRTCY/9V4Bo352ehygr1c4cnst4XN6lMR3fipakEQrhVpc0hEM5Dii3Amz0sT" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style.css">
     <style type="text/tailwindcss">
         @theme {
@@ -56,20 +52,18 @@
             color: #ffffff !important;
         }
     
-        @layer utilities {
-            .card-btn-row {
-                margin-left: -1.5rem;
-                margin-right: -1.5rem;
-            }
-            @media (min-width: 640px) {
-                .card-btn-row {
-                    margin-left: 0;
-                    margin-right: 0;
-                }
-            }
-        }
     </style>
     <style>
+        @media (max-width: 639px) {
+            .card-btn-row {
+                margin-left: -1.5rem !important;
+                margin-right: -1.5rem !important;
+                margin-bottom: -1.5rem !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+                padding-bottom: 1rem !important;
+            }
+        }
         .word-mask { display:inline-block; overflow:hidden; vertical-align:bottom; padding-bottom:0.15em; margin-bottom:-0.15em; }
         .word-mask-inner { display:inline-block; transform:translateY(110%); transition:transform 0.8s cubic-bezier(0.2,0.8,0.2,1); will-change:transform; }
         .reveal.active .word-mask-inner { transform:translateY(0); }
@@ -111,9 +105,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Seasonal Fertiliser</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Tailored nutrition programmes to keep your grass healthy throughout the year.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/seasonal-fertiliser.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/seasonal-fertiliser.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -123,9 +117,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Weed &amp; Moss Control</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Targeted applications to eliminate invasive moss and broadleaf weeds.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/weed-and-moss-control.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/weed-and-moss-control.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -135,9 +129,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Aeration &amp; Scarification</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Relieving compaction and removing thatch to let your lawn breathe.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/aeration-and-scarification.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/aeration-and-scarification.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -147,9 +141,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Full Lawn Renovations</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Complete overhauls including top-dressing and overseeding for tired turf.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/full-lawn-renovations.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/full-lawn-renovations.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -166,9 +160,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Routine Grass Cutting</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Expert mowing schedules for large estates and commercial grounds.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/routine-grass-cutting.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/routine-grass-cutting.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -178,9 +172,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Strimming &amp; Edging</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Precision detailing to keep borders and hard-to-reach areas looking sharp.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/strimming-and-edging.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/strimming-and-edging.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -190,9 +184,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Site Presentation</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Comprehensive management to ensure your site makes a great first impression.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/site-presentation.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/site-presentation.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -209,9 +203,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Regular Trimming</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Maintaining tidy and healthy hedge lines throughout the growing season.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/regular-trimming.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/regular-trimming.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -221,9 +215,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Expert Shaping</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Artistic pruning and shaping to enhance the aesthetic of specimen shrubs.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/expert-shaping.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/expert-shaping.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -233,9 +227,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Plant Health Care</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Monitoring and treating diseases to protect your landscape investment.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/plant-health-care.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/plant-health-care.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -252,9 +246,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Plant Supply &amp; Sourcing</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Expertly sourcing high-quality plants and trees for your specific soil type.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/plant-supply-and-sourcing.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/plant-supply-and-sourcing.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -264,9 +258,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Custom Planting Schemes</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Designing seasonal displays and permanent schemes that thrive.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/custom-planting-schemes.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/custom-planting-schemes.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -276,9 +270,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Bespoke Border Design</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Rejuvenating existing borders or creating new ones from scratch.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/bespoke-border-design.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/bespoke-border-design.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -295,9 +289,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Wetting Agents</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Advanced treatments to improve water penetration and reduce drought stress.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/wetting-agents.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/wetting-agents.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -307,9 +301,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Slow-Release Nutrition</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Providing steady, long-lasting nutrients for sustained plant health.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/slow-release-nutrition.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/slow-release-nutrition.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -319,9 +313,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Soil Resilience</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Improving soil structure and microbial activity for long-term vitality.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/soil-resilience.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/soil-resilience.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -338,9 +332,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Initial &ldquo;Reset&rdquo; Visits</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Bringing neglected spaces back to a manageable standard in one visit.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/initial-reset-visits.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/initial-reset-visits.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -350,9 +344,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Full Site Clearance</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Complete removal of scrub, brambles, and green waste from entire plots.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/full-site-clearance.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/full-site-clearance.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -362,9 +356,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Overgrown Recovery</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Specialist recovery for gardens that have become wild and inaccessible.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/overgrown-recovery.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/overgrown-recovery.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -381,9 +375,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Certified Herbicide</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Safe, professional herbicide application by NPTC certified specialists.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/certified-herbicide.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/certified-herbicide.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -393,9 +387,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Lawn Weed Management</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Eliminating broadleaf weeds without harming your grass.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/lawn-weed-management.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/lawn-weed-management.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -405,9 +399,9 @@
                                 <div class="relative z-20 p-6 flex flex-col justify-end h-full">
                                     <h3 class="font-heading text-xl font-bold text-white mb-2">Hard Surface Treatment</h3>
                                     <p class="font-body text-white/75 text-xs leading-relaxed mb-4">Keeping driveways, patios, and car parks free from weeds and moss.</p>
-                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20">
-                                        <a href="contact.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
-                                        <a href="services/hard-surface-treatment.html" onclick="event.stopPropagation()" class="flex-1 flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
+                                    <div class="card-btn-row flex gap-2 pt-4 border-t border-white/20" style="margin-left:-1.5rem;margin-right:-1.5rem;margin-bottom:-1.5rem;padding-left:1rem;padding-right:1rem;padding-bottom:1rem;width:calc(100% + 3rem);gap:1rem;">
+                                        <a href="contact.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 bg-white text-[#1a3528] font-bold text-[11px] hover:bg-[#d49813] hover:text-white transition-all duration-300">Get in Touch</a>
+                                        <a href="services/hard-surface-treatment.html" onclick="event.stopPropagation()" style="flex:1;" class="flex items-center justify-center py-3 px-3 border border-white/30 text-white font-bold text-[11px] hover:bg-[#d49813] hover:border-[#d49813] transition-all duration-300">Learn More</a>
                                     </div>
                                 </div>
                             </div>

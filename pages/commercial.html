@@ -18,11 +18,7 @@
   <meta property="og:locale" content="en_GB" />
   <meta property="og:site_name" content="Green Seasons" />
 
-  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-  <link rel="manifest" href="../site.webmanifest">
-  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" href="../assets/imgs/main_favicon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +27,7 @@
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <script src="https://unpkg.com/@tailwindcss/browser@4.3.0/dist/index.global.js" integrity="sha384-nWTzRTCY/9V4Bo352ehygr1c4cnst4XN6lMR3fipakEQrhVpc0hEM5Dii3Amz0sT" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="../style.css">
   <style type="text/tailwindcss">
@@ -85,32 +81,11 @@
     <section
       class="relative flex flex-col lg:min-h-[100svh] pt-[170px] sm:pt-[180px] md:pt-[190px] pb-24 lg:pt-[200px] lg:pb-32 overflow-hidden z-0 bg-[#1a3528]">
 
-      <!-- Background Image Slideshow -->
-      <div id="commercial-hero-slideshow" class="absolute inset-0 w-full h-full z-0 overflow-hidden bg-[#1a3528]">
+      <!-- Background Image -->
+      <div class="absolute inset-0 w-full h-full z-0 overflow-hidden bg-[#1a3528]">
 
-        <style>
-          .commercial-hero-zoom-slide {
-            opacity: 0;
-            transform: scale(1);
-            transition: opacity 1.5s ease-in-out, transform 15s linear;
-            will-change: transform, opacity;
-            z-index: 0;
-          }
-          .commercial-hero-zoom-slide.active {
-            opacity: 1;
-            transform: scale(1.15);
-            z-index: 10;
-          }
-        </style>
-
-        <img src="../assets/imgs/commercial_hero_slider/commercial_hero1.jpeg" alt="Commercial grounds maintenance Oxfordshire"
-          class="commercial-hero-zoom-slide absolute inset-0 w-full h-full object-cover" style="filter:saturate(1.35) brightness(1.21)">
-        <img src="../assets/imgs/commercial_hero_slider/commercial_hero2.jpeg" alt="Business park grounds maintenance"
-          class="commercial-hero-zoom-slide absolute inset-0 w-full h-full object-cover" style="filter:saturate(1.35) brightness(1.21)">
-        <img src="../assets/imgs/commercial_hero_slider/commercial_hero3.jpeg" alt="Professional commercial landscaping"
-          class="commercial-hero-zoom-slide absolute inset-0 w-full h-full object-cover" style="filter:saturate(1.35) brightness(1.21)">
-        <img src="../assets/imgs/commercial_hero_slider/commercial_hero4.jpeg" alt="Estate grounds maintenance Oxfordshire"
-          class="commercial-hero-zoom-slide absolute inset-0 w-full h-full object-cover" style="filter:saturate(1.35) brightness(1.21)">
+        <img src="../assets/imgs/commercial page/commercial_hero_slider/hero_commercial.jpeg" alt="Commercial grounds maintenance Oxfordshire"
+          class="absolute inset-0 w-full h-full object-cover" style="filter:saturate(1.708) brightness(1.5863) contrast(0.765)">
 
         <!-- 20% full overlay -->
         <div class="absolute inset-0 bg-black/15 z-20 pointer-events-none"></div>
@@ -125,7 +100,7 @@
         <div
           class="flex flex-col items-center text-center w-full max-w-4xl lg:max-w-5xl reveal reveal-up mx-auto" style="filter: drop-shadow(0 4px 59px rgba(0,0,0,1.0)) drop-shadow(0 2px 18px rgba(0,0,0,1.0))">
 
-          <div class="flex items-center justify-center gap-1.5 mb-6 mt-2 drop-shadow-md">
+          <a href="https://maps.app.goo.gl/vzqZkaaJvMBTuW9s7" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 mb-6 mt-2 drop-shadow-md hover:opacity-80 transition-opacity duration-200">
             <svg class="w-4 h-4 sm:w-5 sm:h-5 text-[#d49813]" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg>
@@ -143,7 +118,7 @@
             </svg>
             <span
               class="font-body text-white/90 text-xs sm:text-sm ml-2 font-medium leading-none translate-y-[1px]">5-Star Google Rated</span>
-          </div>
+          </a>
 
           <h1
             class="group font-heading font-black text-[2.1rem] sm:text-[2.85rem] md:text-[3.5rem] text-white leading-[1.15] mb-6 w-full cursor-default drop-shadow-xl">
@@ -167,26 +142,6 @@
         </div>
       </div>
 
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          const slides = document.querySelectorAll('.commercial-hero-zoom-slide');
-          let currentSlide = 0;
-
-          if (slides.length === 0) return;
-
-          const updateSlide = (index) => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = index;
-            slides[currentSlide].classList.add('active');
-          };
-
-          setTimeout(() => { slides[0].classList.add('active'); }, 50);
-
-          setInterval(() => {
-            updateSlide((currentSlide + 1) % slides.length);
-          }, 5000);
-        });
-      </script>
     </section>
 
     <!-- --------------------------------------------------
@@ -716,13 +671,12 @@
           <!-- LEFT: Form -->
           <div class="lg:w-3/5 p-8 md:p-12 lg:p-16">
             <h3 class="font-heading font-black text-3xl sm:text-4xl text-[#1a3528] mb-3 leading-[1.15]">Your Commercial Enquiry</h3>
-            <p class="font-body text-lg mb-10" style="color:rgba(26,53,40,0.70);">Fill in the details below and Tim will be in touch promptly. All enquiries are handled personally — no call centres, no automated replies.</p>
+            <p class="font-body text-lg mb-10" style="color:rgba(26,53,40,0.70);">Fill in the details below and Tim will be in touch promptly. All enquiries are handled personally, no call centres, no automated replies.</p>
 
-            <form id="commercial-contact-form" class="space-y-8 font-body">
+            <form id="commercial-contact-form" data-form-type="commercial" class="space-y-8 font-body" novalidate>
               <!-- Honeypot -->
-              <div style="display:none;">
-                <label for="commercial-botcheck">Leave this field empty</label>
-                <input type="text" name="botcheck" id="commercial-botcheck" tabindex="-1" autocomplete="off">
+              <div style="position:absolute;left:-9999px;top:-9999px;height:0;overflow:hidden;" aria-hidden="true">
+                <label for="commercial-botcheck">Website <input type="text" name="website" id="commercial-botcheck" tabindex="-1" autocomplete="off"></label>
               </div>
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -797,7 +751,13 @@
                 </label>
               </div>
 
-              <button id="c-submit-btn" type="submit" class="btn-primary">Send Enquiry</button>
+              <button id="c-submit-btn" type="submit" class="btn-primary relative">
+                <span id="c-submit-text">Send Enquiry</span>
+                <svg id="c-submit-spinner" class="hidden animate-spin h-5 w-5 absolute right-5 top-1/2 -translate-y-1/2" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" opacity="0.25"></circle>
+                  <path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+                </svg>
+              </button>
 
               <p id="c-form-error" class="hidden font-bold mt-4" style="color:#DC2626;"></p>
             </form>
@@ -814,16 +774,22 @@
                     window.location.href = 'thank-you.html'; return;
                   }
                   submitBtn.disabled = true;
-                  submitBtn.textContent = 'Sending...';
+                  const cSubmitText = document.getElementById('c-submit-text');
+                  const cSpinner = document.getElementById('c-submit-spinner');
+                  if (cSubmitText) cSubmitText.textContent = 'Sending...';
+                  if (cSpinner) cSpinner.classList.remove('hidden');
                   submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
                   formError.classList.add('hidden');
-                  const formData = new FormData(form);
-                  const webhookUrl = '[YOUR_WEBHOOK_URL_HERE]';
-                  fetch(webhookUrl, { method: 'POST', body: formData, mode: 'no-cors' })
+                  const fd = new FormData(form);
+                  const payload = { form_type: 'commercial' };
+                  fd.forEach((v, k) => { payload[k] = v; });
+                  const webhookUrl = 'https://script.google.com/macros/s/AKfycbw85XGkQWEq1sDXshyLNVL6_fcTRVzAAheeAElv4DSeE68ahRDs7RKNAWCHsq1PLOrP/exec';
+                  fetch(webhookUrl, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(payload), mode: 'no-cors', redirect: 'follow' })
                     .then(() => { window.location.href = 'thank-you.html'; })
                     .catch(() => {
                       submitBtn.disabled = false;
-                      submitBtn.textContent = 'Send Enquiry';
+                      if (cSubmitText) cSubmitText.textContent = 'Send Enquiry';
+                      if (cSpinner) cSpinner.classList.add('hidden');
                       submitBtn.classList.remove('opacity-80', 'cursor-not-allowed');
                       formError.textContent = 'Something went wrong. Please call Tim directly on 07545 285408.';
                       formError.classList.remove('hidden');
@@ -837,11 +803,11 @@
           <div class="lg:w-2/5 text-white p-8 md:p-12 lg:p-16 flex flex-col justify-between relative overflow-hidden" style="background:#1a3528;">
 
             <div class="relative z-10">
-              <h3 class="font-heading font-semibold text-3xl mb-10" style="color:#ffffff;">Get in Touch</h3>
+              <h3 class="font-heading font-semibold text-3xl mb-10 text-center sm:text-left" style="color:#ffffff;">Get in Touch</h3>
 
               <div class="space-y-8 font-body">
 
-                <div class="flex items-start gap-4 group">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 text-center sm:text-left group">
                   <div class="w-12 h-12 rounded-none flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110"
                     style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.10);"
                     onmouseenter="this.style.background='#db9f1b';this.style.borderColor='#db9f1b';"
@@ -854,7 +820,7 @@
                   </div>
                 </div>
 
-                <div class="flex items-start gap-4 group">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 text-center sm:text-left group">
                   <div class="w-12 h-12 rounded-none flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110"
                     style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.10);"
                     onmouseenter="this.style.background='#db9f1b';this.style.borderColor='#db9f1b';"
@@ -867,7 +833,7 @@
                   </div>
                 </div>
 
-                <div class="flex items-start gap-4 group">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 text-center sm:text-left group">
                   <div class="w-12 h-12 rounded-none flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110"
                     style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.10);"
                     onmouseenter="this.style.background='#db9f1b';this.style.borderColor='#db9f1b';"
@@ -882,7 +848,7 @@
                   </div>
                 </div>
 
-                <div class="flex items-start gap-4 group">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 text-center sm:text-left group">
                   <div class="w-12 h-12 rounded-none flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110"
                     style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.10);"
                     onmouseenter="this.style.background='#db9f1b';this.style.borderColor='#db9f1b';"
@@ -896,7 +862,7 @@
                   </div>
                 </div>
 
-                <div class="flex items-start gap-4 group">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 text-center sm:text-left group">
                   <div class="w-12 h-12 rounded-none flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110"
                     style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.10);"
                     onmouseenter="this.style.background='#db9f1b';this.style.borderColor='#db9f1b';"
@@ -909,7 +875,7 @@
                   </div>
                 </div>
 
-                <div class="flex items-start gap-4 group">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 text-center sm:text-left group">
                   <div class="w-12 h-12 rounded-none flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110"
                     style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.10);"
                     onmouseenter="this.style.background='#db9f1b';this.style.borderColor='#db9f1b';"
