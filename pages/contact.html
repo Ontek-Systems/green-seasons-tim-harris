@@ -183,12 +183,12 @@
                                 </label>
                             </div>
 
-                            <button id="submit-btn" type="submit" class="btn-primary relative">
-                                <span id="submit-text">Send My Enquiry</span>
-                                <svg id="submit-spinner" class="hidden animate-spin h-5 w-5 absolute right-5 top-1/2 -translate-y-1/2" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <button id="submit-btn" type="submit" class="btn-primary inline-flex items-center gap-3">
+                                <svg id="submit-spinner" class="hidden animate-spin h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                     <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" opacity="0.25"></circle>
                                     <path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
                                 </svg>
+                                <span id="submit-text">Send My Enquiry</span>
                             </button>
 
                             <p id="form-error" class="hidden font-bold mt-4" style="color:#DC2626;"></p>
@@ -773,12 +773,7 @@
 
                 try {
                     await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload), mode: 'no-cors' });
-                    document.getElementById('form-card').innerHTML = `
-                        <div class="w-full flex flex-col items-center justify-center text-center px-8 py-24 md:py-32" style="background:#ffffff;">
-                            <svg class="w-16 h-16 mb-8" style="color:#15803d;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            <h2 class="font-heading font-black text-4xl sm:text-5xl mb-5" style="color:#1a3528;">Enquiry Sent!</h2>
-                            <p class="font-body text-lg md:text-xl max-w-md" style="color:rgba(26,53,40,0.75);">Thanks for getting in touch. Tim will be back to you shortly with your free, no-obligation quote.</p>
-                        </div>`;
+                    window.location.href = '../pages/thankyou.html';
                 } catch (err) {
                     errorEl.textContent = 'Something went wrong — please try again.';
                     errorEl.classList.remove('hidden');
