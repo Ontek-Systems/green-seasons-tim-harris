@@ -123,7 +123,7 @@
         ══════════════════════════════════════════════════════ -->
         <section id="contact-form" class="py-16 md:py-24">
             <div class="container mx-auto px-6 max-w-[85rem]">
-                <div class="bg-white rounded-none shadow-2xl overflow-hidden flex flex-col lg:flex-row border border-gray-100 reveal reveal-up">
+                <div id="form-card" class="bg-white rounded-none shadow-2xl overflow-hidden flex flex-col lg:flex-row border border-gray-100 reveal reveal-up">
 
                     <!-- LEFT: Form -->
                     <div class="lg:w-3/5 p-8 md:p-12 lg:p-16">
@@ -772,18 +772,13 @@
                 };
 
                 try {
-                    const res  = await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload) });
-                    const data = await res.json();
-
-                    if (data.ok) {
-                        form.innerHTML = '<p class="font-body text-lg text-center py-8" style="color:#15803d;">Thanks! Tim will be in touch shortly.</p>';
-                    } else {
-                        errorEl.textContent = data.message || 'Something went wrong — please try again.';
-                        errorEl.classList.remove('hidden');
-                        btn.disabled = false;
-                        btnText.textContent = 'Send My Enquiry';
-                        spinner.classList.add('hidden');
-                    }
+                    await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload), mode: 'no-cors' });
+                    document.getElementById('form-card').innerHTML = `
+                        <div class="w-full flex flex-col items-center justify-center text-center px-8 py-24 md:py-32" style="background:#ffffff;">
+                            <svg class="w-16 h-16 mb-8" style="color:#15803d;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <h2 class="font-heading font-black text-4xl sm:text-5xl mb-5" style="color:#1a3528;">Enquiry Sent!</h2>
+                            <p class="font-body text-lg md:text-xl max-w-md" style="color:rgba(26,53,40,0.75);">Thanks for getting in touch. Tim will be back to you shortly with your free, no-obligation quote.</p>
+                        </div>`;
                 } catch (err) {
                     errorEl.textContent = 'Something went wrong — please try again.';
                     errorEl.classList.remove('hidden');
