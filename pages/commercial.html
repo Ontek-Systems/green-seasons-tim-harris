@@ -676,7 +676,7 @@
             <form id="commercial-contact-form" data-form-type="commercial" class="space-y-8 font-body" novalidate>
               <!-- Honeypot -->
               <div style="position:absolute;left:-9999px;top:-9999px;height:0;overflow:hidden;" aria-hidden="true">
-                <label for="commercial-botcheck">Website <input type="text" name="website" id="commercial-botcheck" tabindex="-1" autocomplete="off"></label>
+                <label>Leave blank <input type="text" name="hp_check" tabindex="-1" autocomplete="off"></label>
               </div>
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -725,10 +725,14 @@
                   onfocus="this.style.borderColor='#668e78';this.style.boxShadow='0 0 0 4px rgba(102,142,120,0.15)';"
                   onblur="this.style.borderColor='';this.style.boxShadow='';">
                   <option value="" disabled selected>Select a site type...</option>
-                  <option>Business Park / Office</option>
+                  <option>Office Park</option>
+                  <option>Industrial Estate</option>
+                  <option>Retail Park</option>
                   <option>Residential Development</option>
-                  <option>Private Estate</option>
-                  <option>Public / Community Space</option>
+                  <option>School / Education</option>
+                  <option>Care Home</option>
+                  <option>Hotel / Hospitality</option>
+                  <option>Public / Council Site</option>
                   <option>Other</option>
                 </select>
               </div>
@@ -897,6 +901,18 @@
       const form = document.getElementById('commercial-contact-form');
       if (!form) return;
 
+      function val(name) { return (form.querySelector('[name="' + name + '"]') || {}).value || ''; }
+
+      function clientValidate() {
+        if (val('name').trim().length < 2)             return 'Please enter your name.';
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val('email').trim())) return 'Please enter a valid email address.';
+        if (val('phone').replace(/\D/g,'').length < 7) return 'Please enter a valid phone number.';
+        if (val('message').trim().length < 5)          return 'Please tell us a bit about your site.';
+        if (val('company').trim().length < 2)          return 'Please enter your company name.';
+        if (!val('site_type'))                         return 'Please select a site type.';
+        return null;
+      }
+
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
@@ -905,6 +921,13 @@
         const spinner = document.getElementById('c-submit-spinner');
         const errorEl = document.getElementById('c-form-error');
 
+        const clientErr = clientValidate();
+        if (clientErr) {
+          errorEl.textContent = clientErr;
+          errorEl.classList.remove('hidden');
+          return;
+        }
+
         btn.disabled = true;
         btnText.textContent = 'Sending…';
         spinner.classList.remove('hidden');
@@ -912,18 +935,33 @@
 
         const payload = {
           form_type: 'commercial',
-          name:      form.querySelector('[name="name"]').value,
-          company:   form.querySelector('[name="company"]').value,
-          phone:     form.querySelector('[name="phone"]').value,
-          email:     form.querySelector('[name="email"]').value,
-          site_type: form.querySelector('[name="site_type"]').value,
-          message:   form.querySelector('[name="message"]').value,
-          website:   form.querySelector('[name="website"]') ? form.querySelector('[name="website"]').value : ''
+          name:      val('name'),
+          company:   val('company'),
+          email:     val('email'),
+          phone:     val('phone'),
+          site_type: val('site_type'),
+          message:   val('message'),
+          hp_check:  val('hp_check')
         };
 
         try {
-          await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload), mode: 'no-cors' });
-          window.location.href = '../pages/thankyou.html';
+          const res  = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload),
+            redirect: 'follow'
+          });
+          const data = await res.json();
+
+          if (data.ok) {
+            window.location.href = '../pages/thankyou.html';
+          } else {
+            errorEl.textContent = data.message || 'Something went wrong — please try again.';
+            errorEl.classList.remove('hidden');
+            btn.disabled = false;
+            btnText.textContent = 'Send Enquiry';
+            spinner.classList.add('hidden');
+          }
         } catch (err) {
           errorEl.textContent = 'Something went wrong — please try again.';
           errorEl.classList.remove('hidden');

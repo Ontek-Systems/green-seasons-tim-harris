@@ -134,7 +134,7 @@
                         <form id="contact-form" data-form-type="residential" class="space-y-8 font-body" novalidate>
                             <!-- Honeypot -->
                             <div style="position:absolute;left:-9999px;top:-9999px;height:0;overflow:hidden;" aria-hidden="true">
-                                <label for="botcheck">Website <input type="text" name="website" id="botcheck" tabindex="-1" autocomplete="off"></label>
+                                <label>Leave blank <input type="text" name="hp_check" tabindex="-1" autocomplete="off"></label>
                             </div>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -746,16 +746,33 @@
         /* -- Contact form submission ----------------------------------------- */
         (function () {
             const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw85XGkQWEq1sDXshyLNVL6_fcTRVzAAheeAElv4DSeE68ahRDs7RKNAWCHsq1PLOrP/exec';
-            const form = document.getElementById('contact-form');
+            const form    = document.getElementById('contact-form');
             if (!form) return;
+
+            function val(name) { return (form.querySelector('[name="' + name + '"]') || {}).value || ''; }
+
+            function clientValidate() {
+                if (val('name').trim().length < 2)             return 'Please enter your name.';
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val('email').trim())) return 'Please enter a valid email address.';
+                if (val('phone').replace(/\D/g,'').length < 7) return 'Please enter a valid phone number.';
+                if (val('message').trim().length < 5)          return 'Please tell us a bit about your project.';
+                return null;
+            }
 
             form.addEventListener('submit', async function (e) {
                 e.preventDefault();
 
-                const btn      = document.getElementById('submit-btn');
-                const btnText  = document.getElementById('submit-text');
-                const spinner  = document.getElementById('submit-spinner');
-                const errorEl  = document.getElementById('form-error');
+                const btn     = document.getElementById('submit-btn');
+                const btnText = document.getElementById('submit-text');
+                const spinner = document.getElementById('submit-spinner');
+                const errorEl = document.getElementById('form-error');
+
+                const clientErr = clientValidate();
+                if (clientErr) {
+                    errorEl.textContent = clientErr;
+                    errorEl.classList.remove('hidden');
+                    return;
+                }
 
                 btn.disabled = true;
                 btnText.textContent = 'Sending…';
@@ -764,16 +781,31 @@
 
                 const payload = {
                     form_type: 'residential',
-                    name:     form.querySelector('[name="name"]').value,
-                    email:    form.querySelector('[name="email"]').value,
-                    phone:    form.querySelector('[name="phone"]').value,
-                    message:  form.querySelector('[name="message"]').value,
-                    website:  form.querySelector('[name="website"]') ? form.querySelector('[name="website"]').value : ''
+                    name:     val('name'),
+                    email:    val('email'),
+                    phone:    val('phone'),
+                    message:  val('message'),
+                    hp_check: val('hp_check')
                 };
 
                 try {
-                    await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload), mode: 'no-cors' });
-                    window.location.href = '../pages/thankyou.html';
+                    const res  = await fetch(SCRIPT_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body: JSON.stringify(payload),
+                        redirect: 'follow'
+                    });
+                    const data = await res.json();
+
+                    if (data.ok) {
+                        window.location.href = '../pages/thankyou.html';
+                    } else {
+                        errorEl.textContent = data.message || 'Something went wrong — please try again.';
+                        errorEl.classList.remove('hidden');
+                        btn.disabled = false;
+                        btnText.textContent = 'Send My Enquiry';
+                        spinner.classList.add('hidden');
+                    }
                 } catch (err) {
                     errorEl.textContent = 'Something went wrong — please try again.';
                     errorEl.classList.remove('hidden');
