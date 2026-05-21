@@ -348,14 +348,14 @@
         </p>
 
         <!-- Credentials -->
-        <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3">
-          <span class="font-body font-semibold text-base text-white/90 tracking-wide whitespace-nowrap">Public Liability Insurance</span>
+        <div class="flex flex-col items-center gap-y-3">
+          <span class="font-body font-semibold text-base text-white/90 tracking-wide">Public Liability Insurance</span>
           <span class="text-[#db9f1b] text-lg leading-none">&bull;</span>
-          <span class="font-body font-semibold text-base text-white/90 tracking-wide whitespace-nowrap">Employer Liability Insurance</span>
+          <span class="font-body font-semibold text-base text-white/90 tracking-wide">Employer Liability Insurance</span>
           <span class="text-[#db9f1b] text-lg leading-none">&bull;</span>
-          <span class="font-body font-semibold text-base text-white/90 tracking-wide whitespace-nowrap">PA1 Certified</span>
+          <span class="font-body font-semibold text-base text-white/90 tracking-wide">PA1 Certified</span>
           <span class="text-[#db9f1b] text-lg leading-none">&bull;</span>
-          <span class="font-body font-semibold text-base text-white/90 tracking-wide whitespace-nowrap">PA6 Certified</span>
+          <span class="font-body font-semibold text-base text-white/90 tracking-wide">PA6 Certified</span>
         </div>
 
       </div>
@@ -391,7 +391,7 @@
         <div class="hidden lg:block absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-1.5 z-30 pointer-events-none" style="background:#db9f1b;"></div>
 
         <!-- 1: Business Parks & Offices (image left) -->
-        <div class="flex flex-col lg:flex-row items-stretch w-full lg:min-h-[500px] xl:min-h-[600px] group">
+        <div class="flex flex-col lg:flex-row items-stretch w-full lg:min-h-[500px] xl:min-h-[600px] group bg-[#f5fef8]">
           <div class="w-full lg:w-[calc(50%-3px)] relative overflow-hidden min-h-[280px] sm:min-h-[380px] lg:min-h-0">
             <img src="../assets/imgs/WhatsApp Image 2026-05-01 at 07.39.44 copy.jpeg" alt="Business Parks & Offices grounds maintenance" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
           </div>
@@ -405,9 +405,9 @@
         </div>
 
         <!-- 2: Residential Developments (image right) -->
-        <div class="flex flex-col lg:flex-row-reverse items-stretch w-full lg:min-h-[500px] xl:min-h-[600px] group">
+        <div class="flex flex-col lg:flex-row-reverse items-stretch w-full lg:min-h-[500px] xl:min-h-[600px] group bg-white">
           <div class="w-full lg:w-[calc(50%-3px)] relative overflow-hidden min-h-[280px] sm:min-h-[380px] lg:min-h-0">
-            <img src="../assets/imgs/commercial page/05 residential.jpeg" alt="Residential Developments grounds maintenance" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+            <img src="../assets/imgs/commercial page/05 residential.jpeg" alt="Residential Developments grounds maintenance" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="filter: saturate(1.1);">
           </div>
           <div class="w-full lg:w-[calc(50%-3px)] flex flex-col justify-center p-8 sm:p-10 lg:p-16 xl:p-24 bg-white reveal reveal-left relative overflow-hidden text-left items-start" style="transition-delay:0.4s">
             <div class="absolute top-0 right-0 w-1.5 h-full bg-[#ffffff] transform scale-y-0 origin-bottom transition-transform duration-700 group-hover:scale-y-100 lg:block hidden"></div>
@@ -420,7 +420,7 @@
         </div>
 
         <!-- 3: Private Estates (image left) -->
-        <div class="flex flex-col lg:flex-row items-stretch w-full lg:min-h-[500px] xl:min-h-[600px] group">
+        <div class="flex flex-col lg:flex-row items-stretch w-full lg:min-h-[500px] xl:min-h-[600px] group bg-[#f5fef8]">
           <div class="w-full lg:w-[calc(50%-3px)] relative overflow-hidden min-h-[280px] sm:min-h-[380px] lg:min-h-0">
             <img src="../assets/imgs/Private estates and large properties homepage.jpeg" alt="Private Estates grounds management" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
           </div>
@@ -434,7 +434,7 @@
         </div>
 
         <!-- 4: Public & Community Spaces (image right) -->
-        <div class="flex flex-col lg:flex-row-reverse items-stretch w-full lg:min-h-[500px] xl:min-h-[600px] group">
+        <div class="flex flex-col lg:flex-row-reverse items-stretch w-full lg:min-h-[500px] xl:min-h-[600px] group bg-white">
           <div class="w-full lg:w-[calc(50%-3px)] relative overflow-hidden min-h-[280px] sm:min-h-[380px] lg:min-h-0">
             <img src="../assets/imgs/WhatsApp Image 2026-05-01 at 17.15.58 copy.jpeg" alt="Public & Community Spaces maintenance" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
           </div>
@@ -762,41 +762,6 @@
               <p id="c-form-error" class="hidden font-bold mt-4" style="color:#DC2626;"></p>
             </form>
 
-            <script>
-              document.addEventListener('DOMContentLoaded', () => {
-                const form      = document.getElementById('commercial-contact-form');
-                const submitBtn = document.getElementById('c-submit-btn');
-                const formError = document.getElementById('c-form-error');
-                if (!form || !submitBtn) return;
-                form.addEventListener('submit', (e) => {
-                  e.preventDefault();
-                  if (document.getElementById('commercial-botcheck').value !== '') {
-                    window.location.href = 'thank-you.html'; return;
-                  }
-                  submitBtn.disabled = true;
-                  const cSubmitText = document.getElementById('c-submit-text');
-                  const cSpinner = document.getElementById('c-submit-spinner');
-                  if (cSubmitText) cSubmitText.textContent = 'Sending...';
-                  if (cSpinner) cSpinner.classList.remove('hidden');
-                  submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
-                  formError.classList.add('hidden');
-                  const fd = new FormData(form);
-                  const payload = { form_type: 'commercial' };
-                  fd.forEach((v, k) => { payload[k] = v; });
-                  const webhookUrl = 'https://script.google.com/macros/s/AKfycbw85XGkQWEq1sDXshyLNVL6_fcTRVzAAheeAElv4DSeE68ahRDs7RKNAWCHsq1PLOrP/exec';
-                  fetch(webhookUrl, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(payload), mode: 'no-cors', redirect: 'follow' })
-                    .then(() => { window.location.href = 'thank-you.html'; })
-                    .catch(() => {
-                      submitBtn.disabled = false;
-                      if (cSubmitText) cSubmitText.textContent = 'Send Enquiry';
-                      if (cSpinner) cSpinner.classList.add('hidden');
-                      submitBtn.classList.remove('opacity-80', 'cursor-not-allowed');
-                      formError.textContent = 'Something went wrong. Please call Tim directly on 07545 285408.';
-                      formError.classList.remove('hidden');
-                    });
-                });
-              });
-            </script>
           </div>
 
           <!-- RIGHT: Contact Info -->
@@ -924,6 +889,61 @@
 
   <div id="footer-placeholder"></div>
   <script src="../global.js"></script>
+
+  <script>
+    /* -- Commercial contact form submission ---------------------------------- */
+    (function () {
+      const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw85XGkQWEq1sDXshyLNVL6_fcTRVzAAheeAElv4DSeE68ahRDs7RKNAWCHsq1PLOrP/exec';
+      const form = document.getElementById('commercial-contact-form');
+      if (!form) return;
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const btn     = document.getElementById('c-submit-btn');
+        const btnText = document.getElementById('c-submit-text');
+        const spinner = document.getElementById('c-submit-spinner');
+        const errorEl = document.getElementById('c-form-error');
+
+        btn.disabled = true;
+        btnText.textContent = 'Sending…';
+        spinner.classList.remove('hidden');
+        errorEl.classList.add('hidden');
+
+        const payload = {
+          form_type: 'commercial',
+          name:      form.querySelector('[name="name"]').value,
+          company:   form.querySelector('[name="company"]').value,
+          phone:     form.querySelector('[name="phone"]').value,
+          email:     form.querySelector('[name="email"]').value,
+          site_type: form.querySelector('[name="site_type"]').value,
+          message:   form.querySelector('[name="message"]').value,
+          website:   form.querySelector('[name="website"]') ? form.querySelector('[name="website"]').value : ''
+        };
+
+        try {
+          const res  = await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload) });
+          const data = await res.json();
+
+          if (data.ok) {
+            form.innerHTML = '<p class="font-body text-lg text-center py-8" style="color:#15803d;">Thanks! Tim will be in touch shortly.</p>';
+          } else {
+            errorEl.textContent = data.message || 'Something went wrong — please try again.';
+            errorEl.classList.remove('hidden');
+            btn.disabled = false;
+            btnText.textContent = 'Send Enquiry';
+            spinner.classList.add('hidden');
+          }
+        } catch (err) {
+          errorEl.textContent = 'Something went wrong — please try again.';
+          errorEl.classList.remove('hidden');
+          btn.disabled = false;
+          btnText.textContent = 'Send Enquiry';
+          spinner.classList.add('hidden');
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>

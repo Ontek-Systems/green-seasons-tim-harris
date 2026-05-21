@@ -281,6 +281,10 @@
  font-family: var(--font-signature);
  }
 
+ .font-heading {
+ font-feature-settings: "liga" 0, "calt" 0, "onum" 0;
+ }
+
  .bg-noise {
  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
  opacity: 0.04;
@@ -823,7 +827,7 @@
                 <!-- 3: Residential Developments & Estate Management (Image Left) -->
                 <div class="flex flex-col lg:flex-row items-stretch w-full lg:min-h-[500px] xl:min-h-[600px] group">
                     <div class="w-full lg:w-[calc(50%-3px)] relative overflow-hidden min-h-[280px] sm:min-h-[380px] lg:min-h-0">
-                        <img src="assets/imgs/commercial page/05 residential.jpeg" alt="Residential Developments & Estate Management" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                        <img src="assets/imgs/commercial page/05 residential.jpeg" alt="Residential Developments & Estate Management" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="filter: saturate(1.1);">
                     </div>
                     <div class="w-full lg:w-[calc(50%-3px)] flex flex-col justify-center p-8 sm:p-10 lg:p-16 xl:p-24 bg-[#f5fef8] reveal reveal-right relative overflow-hidden" style="transition-delay:0.4s">
                         <div class="absolute top-0 left-0 w-1.5 h-full bg-[#ffffff] transform scale-y-0 origin-bottom transition-transform duration-700 group-hover:scale-y-100"></div>
@@ -1715,43 +1719,6 @@
  });
  </script>
 
- <script>
- // Form submission handler
- (function () {
- const WEBHOOK = '[YOUR_WEBHOOK_URL_HERE]';
- let submissionCount = parseInt(sessionStorage.getItem('formSubmitCount') || '0');
- function handleFormSubmit(form, successCallback) {
- form.addEventListener('submit', function (e) {
- e.preventDefault();
- const honey = form.querySelector('[name="website_url"], [name="botcheck"]');
- if (honey && honey.value) return;
- submissionCount = parseInt(sessionStorage.getItem('formSubmitCount') || '0');
- if (submissionCount>= 3) { alert('Too many submissions. Please try again later.'); return; }
- const gdpr = form.querySelector('[name="gdpr"]');
- if (gdpr && !gdpr.checked) { alert('Please agree to be contacted before submitting.'); return; }
- const btn = form.querySelector('button[type="submit"]');
- const originalText = btn ? btn.innerHTML : '';
- if (btn) { btn.disabled = true; btn.innerHTML = 'Sending...'; }
- const data = {
- name: form.querySelector('[name="name"]') ? form.querySelector('[name="name"]').value : '',
- email: form.querySelector('[name="email"]') ? form.querySelector('[name="email"]').value : '',
- phone: form.querySelector('[name="phone"]') ? form.querySelector('[name="phone"]').value : '',
- message: form.querySelector('[name="message"]') ? form.querySelector('[name="message"]').value : '',
- source: window.location.pathname
- };
- fetch(WEBHOOK, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
- .then(() => { submissionCount++; sessionStorage.setItem('formSubmitCount', submissionCount); if (successCallback) successCallback(); else { form.reset(); alert('Thank you! Tim will be in touch shortly.'); } })
- .catch(() => { alert('Something went wrong. Please call Tim on 07545 285408.'); })
- .finally(() => { if (btn) { btn.disabled = false; btn.innerHTML = originalText; } });
- });
- }
- document.addEventListener('DOMContentLoaded', function () {
- document.querySelectorAll('form').forEach(function (form) {
- handleFormSubmit(form, function () { window.location.href = 'pages/thank-you.html'; });
- });
- });
- })();
- </script>
 
  <div id="footer-placeholder"></div>
  <script src="global.js"></script>
