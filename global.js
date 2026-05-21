@@ -144,6 +144,9 @@ async function loadComponents() {
                 var isServicePage = window.location.pathname.match(/\/pages\/services\/.+/);
                 if (isServicePage) {
                     siteHeader.classList.add('scrolled');
+                    requestAnimationFrame(function() {
+                        siteHeader.style.transition = '';
+                    });
                 } else {
                     var updateHeader = function() {
                         if (window.scrollY > 50) siteHeader.classList.add('scrolled');
