@@ -33,11 +33,11 @@
     </style>
 </head>
 
-<body class="flex flex-col min-h-screen antialiased" style="background:#f7f8f5;" data-suppress-footer-cta>
+<body class="flex flex-col min-h-screen antialiased" style="background:#f7f8f5;" data-suppress-footer-cta data-nav-scrolled>
 
     <div id="header-placeholder"></div>
 
-    <main class="flex-1 flex items-center justify-center px-6 py-24 md:py-32">
+    <main class="flex-1 flex items-center justify-center px-6 pt-40 pb-24 md:pt-52 md:pb-32">
         <div class="w-full max-w-2xl text-center">
 
             <!-- Tick -->
@@ -58,21 +58,17 @@
             <p class="font-body text-lg md:text-xl mb-4 mx-auto max-w-lg" style="color:rgba(26,53,40,0.75); line-height:1.7;">
                 Thanks for getting in touch. Tim will be back to you shortly with your free, no-obligation quote.
             </p>
-            <p class="font-body text-base mb-12" style="color:rgba(26,53,40,0.50);">
+            <p class="font-body text-base mb-14" style="color:rgba(26,53,40,0.50);">
                 In the meantime, feel free to call on
                 <a href="tel:+447545285408" style="color:#db9f1b; font-weight:600;">07545 285408</a>
                 if you'd prefer to talk straight away.
             </p>
 
-            <!-- Divider -->
-            <div class="w-16 h-px mx-auto mb-12" style="background:#db9f1b; opacity:0.4;"></div>
-
-            <!-- Back link -->
-            <a href="../index.html" class="font-body font-semibold text-base inline-flex items-center gap-2 transition-colors duration-200" style="color:#1a3528;">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-                </svg>
-                Back to home
+            <!-- Button -->
+            <a href="../index.html"
+               class="font-body font-semibold text-base inline-block px-8 py-4 rounded-none transition-colors duration-200"
+               style="background:#668e78; color:#ffffff;">
+                Back to Home
             </a>
 
         </div>
@@ -81,6 +77,12 @@
     <div id="footer-placeholder"></div>
 
     <script src="../global.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var h = document.getElementById('site-header') || document.querySelector('header');
+            if (h) h.classList.add('scrolled');
+        });
+    </script>
 
 </body>
 </html>
