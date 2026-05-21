@@ -136,6 +136,23 @@ async function loadComponents() {
                 });
             }
             headerPlaceholder.outerHTML = html;
+            var u = 'green-seasons', d = 'hotmail.com', e = u + '@' + d;
+            document.querySelectorAll('.gs-email-link').forEach(function(a) { a.href = 'mailto:' + e; });
+            document.querySelectorAll('.gs-email-text').forEach(function(s) { s.textContent = e; });
+            var siteHeader = document.getElementById('site-header');
+            if (siteHeader) {
+                var isServicePage = window.location.pathname.match(/\/pages\/services\/.+/);
+                if (isServicePage) {
+                    siteHeader.classList.add('scrolled');
+                } else {
+                    var updateHeader = function() {
+                        if (window.scrollY > 50) siteHeader.classList.add('scrolled');
+                        else siteHeader.classList.remove('scrolled');
+                    };
+                    window.addEventListener('scroll', updateHeader);
+                    updateHeader();
+                }
+            }
         } catch (e) {
             console.error('Error loading header:', e);
         }
@@ -159,7 +176,13 @@ async function loadComponents() {
             footerPlaceholder.outerHTML = html;
             const ctaTagline = document.getElementById('footer-cta-tagline');
             const override = document.body.getAttribute('data-cta-tagline');
-            if (ctaTagline && override) ctaTagline.textContent = override;
+            if (ctaTagline) {
+                if (override !== null && override === '') {
+                    ctaTagline.closest('span.word-mask-inner') ? ctaTagline.closest('span.word-mask-inner').style.display = 'none' : ctaTagline.parentElement.style.display = 'none';
+                } else if (ctaTagline && override) {
+                    ctaTagline.textContent = override;
+                }
+            }
         } catch (e) {
             console.error('Error loading footer:', e);
         }
