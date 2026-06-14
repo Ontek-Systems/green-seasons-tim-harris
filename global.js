@@ -141,9 +141,11 @@ async function loadComponents() {
             document.querySelectorAll('.gs-email-text').forEach(function(s) { s.textContent = e; });
             var siteHeader = document.getElementById('site-header');
             if (siteHeader) {
-                var isServicePage = window.location.pathname.match(/\/pages\/services\/.+/);
+                var isServicePage = window.location.pathname.match(/\/pages\/services\/.+/) || window.location.pathname.match(/\/pages\/locations\/.+/);
                 if (isServicePage) {
                     siteHeader.classList.add('scrolled');
+                    var cont = document.getElementById('header-container');
+                    if (cont) { cont.classList.remove('py-5', 'md:py-6'); cont.classList.add('py-2', 'md:py-3'); }
                     requestAnimationFrame(function() {
                         siteHeader.style.transition = '';
                     });
@@ -215,7 +217,7 @@ function initServicesMegaMenu() {
 function initHeaderScroll() {
     const header = document.getElementById('site-header');
     const container = document.getElementById('header-container');
-    const isServicePage = window.location.pathname.match(/\/pages\/services\/.+\.html/);
+    const isServicePage = window.location.pathname.match(/\/pages\/(services|locations)\/.+/);
 
     if (header && container) {
         if (isServicePage) {
