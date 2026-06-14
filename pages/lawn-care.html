@@ -65,6 +65,48 @@
       color: #ffffff !important;
     }
   </style>
+  <style>
+    .cal-card-spring,
+    .cal-card-summer,
+    .cal-card-autumn,
+    .cal-card-winter  { transition: background 0.3s ease, border-color 0.3s ease; }
+    .cal-icon         { transition: background 0.3s ease, transform 0.3s ease; }
+    .cal-subtitle,
+    .cal-text,
+    .cal-dot          { transition: color 0.3s ease, background 0.3s ease; }
+    .cal-card-spring h3,
+    .cal-card-summer h3,
+    .cal-card-autumn h3,
+    .cal-card-winter h3 { transition: color 0.3s ease; }
+
+    .cal-card-spring:hover  { background: #668e78 !important; border-color: #4e7060 !important; }
+    .cal-card-summer:hover  { background: #c9921a !important; border-color: #a97510 !important; }
+    .cal-card-autumn:hover  { background: #b85c2a !important; border-color: #924520 !important; }
+    .cal-card-winter:hover  { background: #4a7a9b !important; border-color: #385f7a !important; }
+
+    .cal-card-spring:hover  .cal-icon,
+    .cal-card-summer:hover  .cal-icon,
+    .cal-card-autumn:hover  .cal-icon,
+    .cal-card-winter:hover  .cal-icon  { background: rgba(255,255,255,0.2) !important; transform: scale(1.15); }
+
+    .cal-card-spring:hover  h3,
+    .cal-card-summer:hover  h3,
+    .cal-card-autumn:hover  h3,
+    .cal-card-winter:hover  h3,
+    .cal-card-spring:hover  .cal-subtitle,
+    .cal-card-summer:hover  .cal-subtitle,
+    .cal-card-autumn:hover  .cal-subtitle,
+    .cal-card-winter:hover  .cal-subtitle,
+    .cal-card-spring:hover  .cal-text,
+    .cal-card-summer:hover  .cal-text,
+    .cal-card-autumn:hover  .cal-text,
+    .cal-card-winter:hover  .cal-text  { color: white !important; }
+
+    .cal-card-spring:hover  .cal-dot,
+    .cal-card-summer:hover  .cal-dot,
+    .cal-card-autumn:hover  .cal-dot,
+    .cal-card-winter:hover  .cal-dot   { background: rgba(255,255,255,0.7) !important; }
+  </style>
 </head>
 
 <body class="flex flex-col min-h-screen antialiased" data-suppress-footer-cta>
@@ -569,9 +611,9 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
           <!-- Spring — soft sage green -->
-          <div class="group p-8 transition-all duration-300 cursor-default reveal reveal-up" style="transition-delay:0.05s; background:#f0f6f2; border:1px solid #c8ddd3;">
+          <div class="group cal-card-spring p-8 cursor-default reveal reveal-up" style="transition-delay:0.05s; background:#f0f6f2; border:1px solid #c8ddd3;">
             <div class="flex flex-col items-center text-center sm:items-center sm:text-center lg:items-start lg:text-left">
-              <div class="w-12 h-12 flex items-center justify-center mb-6 mx-auto lg:mx-0 transition-colors duration-300" style="background:#668e78;">
+              <div class="cal-icon w-12 h-12 flex items-center justify-center mb-6 mx-auto lg:mx-0" style="background:#668e78;">
                 <!-- Flower -->
                 <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="2.2"/>
@@ -585,21 +627,21 @@
                   <ellipse cx="8.05" cy="15.95" rx="2" ry="3.5" transform="rotate(45 8.05 15.95)"/>
                 </svg>
               </div>
-              <h3 class="font-heading font-bold text-2xl mb-1 leading-tight transition-colors duration-300 text-center lg:text-left w-full" style="color:#1a3528;">Spring</h3>
-              <p class="font-body text-xs uppercase tracking-widest font-bold mb-5 text-center lg:text-left w-full" style="color:#668e78;">March &ndash; May</p>
+              <h3 class="font-heading font-bold text-2xl mb-1 leading-tight text-center lg:text-left w-full" style="color:#1a3528;">Spring</h3>
+              <p class="cal-subtitle font-body text-xs uppercase tracking-widest font-bold mb-5 text-center lg:text-left w-full" style="color:#668e78;">March &ndash; May</p>
             </div>
             <ul class="space-y-2.5 flex flex-col items-center lg:items-start">
-              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#668e78;"></span><span class="font-body text-sm" style="color:rgba(26,53,40,0.75);">Spring fertiliser application</span></li>
-              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#668e78;"></span><span class="font-body text-sm" style="color:rgba(26,53,40,0.75);">Selective weed control</span></li>
-              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#668e78;"></span><span class="font-body text-sm" style="color:rgba(26,53,40,0.75);">Aeration where needed</span></li>
-              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#668e78;"></span><span class="font-body text-sm" style="color:rgba(26,53,40,0.75);">Overseeding bare patches</span></li>
+              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="cal-dot w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#668e78;"></span><span class="cal-text font-body text-sm" style="color:rgba(26,53,40,0.75);">Spring fertiliser application</span></li>
+              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="cal-dot w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#668e78;"></span><span class="cal-text font-body text-sm" style="color:rgba(26,53,40,0.75);">Selective weed control</span></li>
+              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="cal-dot w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#668e78;"></span><span class="cal-text font-body text-sm" style="color:rgba(26,53,40,0.75);">Aeration where needed</span></li>
+              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="cal-dot w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#668e78;"></span><span class="cal-text font-body text-sm" style="color:rgba(26,53,40,0.75);">Overseeding bare patches</span></li>
             </ul>
           </div>
 
           <!-- Summer — muted warm yellow -->
-          <div class="group p-8 transition-all duration-300 cursor-default reveal reveal-up" style="transition-delay:0.1s; background:#fdf8ec; border:1px solid #e8d9a0;">
+          <div class="group cal-card-summer p-8 cursor-default reveal reveal-up" style="transition-delay:0.1s; background:#fdf8ec; border:1px solid #e8d9a0;">
             <div class="flex flex-col items-center text-center sm:items-center sm:text-center lg:items-start lg:text-left">
-              <div class="w-12 h-12 flex items-center justify-center mb-6 mx-auto lg:mx-0 transition-colors duration-300" style="background:#c9921a;">
+              <div class="cal-icon w-12 h-12 flex items-center justify-center mb-6 mx-auto lg:mx-0" style="background:#c9921a;">
                 <!-- Sun -->
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="4" stroke-width="2" fill="currentColor"/>
@@ -613,20 +655,20 @@
                   <line x1="7.05" y1="16.95" x2="4.93" y2="19.07" stroke-width="2" stroke-linecap="round"/>
                 </svg>
               </div>
-              <h3 class="font-heading font-bold text-2xl mb-1 leading-tight transition-colors duration-300 text-center lg:text-left w-full" style="color:#1a3528;">Summer</h3>
-              <p class="font-body text-xs uppercase tracking-widest font-bold mb-5 text-center lg:text-left w-full" style="color:#b07d10;">June &ndash; August</p>
+              <h3 class="font-heading font-bold text-2xl mb-1 leading-tight text-center lg:text-left w-full" style="color:#1a3528;">Summer</h3>
+              <p class="cal-subtitle font-body text-xs uppercase tracking-widest font-bold mb-5 text-center lg:text-left w-full" style="color:#b07d10;">June &ndash; August</p>
             </div>
             <ul class="space-y-2.5 flex flex-col items-center lg:items-start">
-              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#c9921a;"></span><span class="font-body text-sm" style="color:rgba(26,53,40,0.75);">Slow-release fertiliser</span></li>
-              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#c9921a;"></span><span class="font-body text-sm" style="color:rgba(26,53,40,0.75);">Wetting agent applications</span></li>
-              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#c9921a;"></span><span class="font-body text-sm" style="color:rgba(26,53,40,0.75);">Drought stress management</span></li>
+              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="cal-dot w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#c9921a;"></span><span class="cal-text font-body text-sm" style="color:rgba(26,53,40,0.75);">Slow-release fertiliser</span></li>
+              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="cal-dot w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#c9921a;"></span><span class="cal-text font-body text-sm" style="color:rgba(26,53,40,0.75);">Wetting agent applications</span></li>
+              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="cal-dot w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#c9921a;"></span><span class="cal-text font-body text-sm" style="color:rgba(26,53,40,0.75);">Drought stress management</span></li>
             </ul>
           </div>
 
           <!-- Autumn — muted terracotta/burnt orange -->
-          <div class="group p-8 transition-all duration-300 cursor-default reveal reveal-up" style="transition-delay:0.15s; background:#faf3ef; border:1px solid #e2c0aa;">
+          <div class="group cal-card-autumn p-8 cursor-default reveal reveal-up" style="transition-delay:0.15s; background:#faf3ef; border:1px solid #e2c0aa;">
             <div class="flex flex-col items-center text-center sm:items-center sm:text-center lg:items-start lg:text-left">
-              <div class="w-12 h-12 flex items-center justify-center mb-6 mx-auto lg:mx-0 transition-colors duration-300" style="background:#b85c2a;">
+              <div class="cal-icon w-12 h-12 flex items-center justify-center mb-6 mx-auto lg:mx-0" style="background:#b85c2a;">
                 <!-- Bare tree -->
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                   <line x1="12" y1="22" x2="12" y2="11"/>
@@ -641,21 +683,21 @@
                   <line x1="12" y1="6" x2="14" y2="4"/>
                 </svg>
               </div>
-              <h3 class="font-heading font-bold text-2xl mb-1 leading-tight transition-colors duration-300 text-center lg:text-left w-full" style="color:#1a3528;">Autumn</h3>
-              <p class="font-body text-xs uppercase tracking-widest font-bold mb-5 text-center lg:text-left w-full" style="color:#b85c2a;">September &ndash; October</p>
+              <h3 class="font-heading font-bold text-2xl mb-1 leading-tight text-center lg:text-left w-full" style="color:#1a3528;">Autumn</h3>
+              <p class="cal-subtitle font-body text-xs uppercase tracking-widest font-bold mb-5 text-center lg:text-left w-full" style="color:#b85c2a;">September &ndash; October</p>
             </div>
             <ul class="space-y-2.5 flex flex-col items-center lg:items-start">
-              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#b85c2a;"></span><span class="font-body text-sm" style="color:rgba(26,53,40,0.75);">Renovation season</span></li>
-              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#b85c2a;"></span><span class="font-body text-sm" style="color:rgba(26,53,40,0.75);">Multi-directional scarification</span></li>
-              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#b85c2a;"></span><span class="font-body text-sm" style="color:rgba(26,53,40,0.75);">Aeration &amp; overseeding</span></li>
-              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#b85c2a;"></span><span class="font-body text-sm" style="color:rgba(26,53,40,0.75);">Autumn fertiliser</span></li>
+              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="cal-dot w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#b85c2a;"></span><span class="cal-text font-body text-sm" style="color:rgba(26,53,40,0.75);">Renovation season</span></li>
+              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="cal-dot w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#b85c2a;"></span><span class="cal-text font-body text-sm" style="color:rgba(26,53,40,0.75);">Multi-directional scarification</span></li>
+              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="cal-dot w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#b85c2a;"></span><span class="cal-text font-body text-sm" style="color:rgba(26,53,40,0.75);">Aeration &amp; overseeding</span></li>
+              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="cal-dot w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#b85c2a;"></span><span class="cal-text font-body text-sm" style="color:rgba(26,53,40,0.75);">Autumn fertiliser</span></li>
             </ul>
           </div>
 
           <!-- Winter — muted steel blue -->
-          <div class="group p-8 transition-all duration-300 cursor-default reveal reveal-up" style="transition-delay:0.2s; background:#f0f4f8; border:1px solid #b8cede;">
+          <div class="group cal-card-winter p-8 cursor-default reveal reveal-up" style="transition-delay:0.2s; background:#f0f4f8; border:1px solid #b8cede;">
             <div class="flex flex-col items-center text-center sm:items-center sm:text-center lg:items-start lg:text-left">
-              <div class="w-12 h-12 flex items-center justify-center mb-6 mx-auto lg:mx-0 transition-colors duration-300" style="background:#4a7a9b;">
+              <div class="cal-icon w-12 h-12 flex items-center justify-center mb-6 mx-auto lg:mx-0" style="background:#4a7a9b;">
                 <!-- Snowflake — 6-pointed with crossbars -->
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" viewBox="0 0 24 24">
                   <line x1="12" y1="2" x2="12" y2="22"/>
@@ -669,13 +711,13 @@
                   <line x1="19.2" y1="13.3" x2="17.2" y2="16.8"/>
                 </svg>
               </div>
-              <h3 class="font-heading font-bold text-2xl mb-1 leading-tight transition-colors duration-300 text-center lg:text-left w-full" style="color:#1a3528;">Winter</h3>
-              <p class="font-body text-xs uppercase tracking-widest font-bold mb-5 text-center lg:text-left w-full" style="color:#4a7a9b;">November &ndash; February</p>
+              <h3 class="font-heading font-bold text-2xl mb-1 leading-tight text-center lg:text-left w-full" style="color:#1a3528;">Winter</h3>
+              <p class="cal-subtitle font-body text-xs uppercase tracking-widest font-bold mb-5 text-center lg:text-left w-full" style="color:#4a7a9b;">November &ndash; February</p>
             </div>
             <ul class="space-y-2.5 flex flex-col items-center lg:items-start">
-              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#4a7a9b;"></span><span class="font-body text-sm" style="color:rgba(26,53,40,0.75);">Soil health monitoring</span></li>
-              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#4a7a9b;"></span><span class="font-body text-sm" style="color:rgba(26,53,40,0.75);">Moss monitoring</span></li>
-              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#4a7a9b;"></span><span class="font-body text-sm" style="color:rgba(26,53,40,0.75);">Planning next season's programme</span></li>
+              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="cal-dot w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#4a7a9b;"></span><span class="cal-text font-body text-sm" style="color:rgba(26,53,40,0.75);">Soil health monitoring</span></li>
+              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="cal-dot w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#4a7a9b;"></span><span class="cal-text font-body text-sm" style="color:rgba(26,53,40,0.75);">Moss monitoring</span></li>
+              <li class="flex items-center gap-2.5 justify-center lg:justify-start"><span class="cal-dot w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:#4a7a9b;"></span><span class="cal-text font-body text-sm" style="color:rgba(26,53,40,0.75);">Planning next season's programme</span></li>
             </ul>
           </div>
 
